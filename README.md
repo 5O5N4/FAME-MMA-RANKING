@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAME MMA Fan Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <title>FAME MMA - Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --fame-red: #ff0000;
             --fame-gold: #ffcc00;
-            --dark-bg: #0a0a0a;
+            --dark-bg: #050505;
+            --card-bg: #121212;
         }
 
         body {
@@ -17,138 +18,171 @@
             background-color: var(--dark-bg);
             color: white;
             margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            padding-bottom: 80px; /* Miejsce na dolne menu */
         }
 
+        /* Nagłówek */
         header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1595079676339-1534801ad6cf?auto=format&fit=crop&q=80&w=1000') center/cover;
-            height: 40vh;
+            background: #000;
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid var(--fame-red);
+        }
+
+        h1 { font-family: 'Oswald', sans-serif; margin: 0; font-size: 2rem; }
+        .gold { color: var(--fame-gold); }
+
+        /* Nawigacja Dolna */
+        nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #111;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            border-bottom: 4px solid var(--fame-red);
+            justify-content: space-around;
+            padding: 15px 0;
+            border-top: 1px solid #333;
+            z-index: 1000;
         }
 
-        h1 {
+        .nav-item {
+            color: #888;
+            text-decoration: none;
             font-family: 'Oswald', sans-serif;
-            font-size: 3.5rem;
-            margin: 0;
-            color: #fff;
-            text-shadow: 2px 2px 10px rgba(255,0,0,0.8);
+            font-size: 1.2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
         }
 
-        .highlight { color: var(--fame-gold); }
-
-        .container {
-            padding: 20px;
-            max-width: 600px;
-            margin: auto;
+        .nav-item.active {
+            color: var(--fame-red);
         }
 
-        /* Styl karty walki */
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 25px;
-            margin: 20px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        /* Sekcje */
+        .section { display: none; padding: 20px; animation: fadeIn 0.3s; }
+        .section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .main-fight {
-            text-align: center;
-            border-left: 5px solid var(--fame-red);
-        }
-
-        .vs-grid {
+        /* Karta Walki */
+        .fight-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            padding: 15px;
             display: grid;
             grid-template-columns: 1fr auto 1fr;
             align-items: center;
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .fighter-name {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.4rem;
-            text-transform: uppercase;
-        }
-
-        .vs-badge {
-            background: var(--fame-red);
-            padding: 5px 12px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-style: italic;
-        }
-
-        /* Przyciski dopasowane do kciuka na telefonie */
-        .btn {
-            display: block;
-            background: var(--fame-red);
-            color: white;
-            text-decoration: none;
-            padding: 18px;
-            border-radius: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            margin: 10px 0;
-            font-size: 1.1rem;
-        }
-
-        .btn-gold {
-            background: transparent;
-            border: 2px solid var(--fame-gold);
-            color: var(--fame-gold);
-        }
-
-        footer {
             text-align: center;
-            padding: 40px;
-            font-size: 0.7rem;
-            opacity: 0.5;
+            border-left: 4px solid var(--fame-red);
         }
+
+        .fighter { font-family: 'Oswald', sans-serif; font-size: 1.1rem; }
+        .vs { background: var(--fame-red); padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 0.8rem; }
+
+        /* Tabela Rankingu */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th { background: #222; color: var(--fame-gold); padding: 12px; text-align: left; font-family: 'Oswald'; }
+        td { padding: 12px; border-bottom: 1px solid #222; }
+        .win { color: #00ff00; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>FAME <span class="highlight">MMA</span></h1>
-        <p style="font-family: 'Oswald';">FAN PAGE / NOWY SEZON</p>
-    </header>
+<header>
+    <h1>FAME <span class="gold">STATY</span></h1>
+</header>
 
-    <div class="container">
-        
-        <div class="card main-fight">
-            <p style="color: var(--fame-gold); margin: 0; font-weight: bold;">WALKA WIECZORU</p>
-            <div class="vs-grid">
-                <div class="fighter-name">Don Kasjo</div>
-                <div class="vs-badge">VS</div>
-                <div class="fighter-name">Boxdel</div>
-            </div>
-            <p style="font-size: 0.9rem; margin-bottom: 0;">Lokalizacja: Tauron Arena, Kraków</p>
-        </div>
-
-        <div class="card">
-            <h3 style="margin-top: 0;">Moje typy:</h3>
-            <p>🥊 Walka 1: <b>Kasjo przez decyzję</b></p>
-            <p>🥊 Walka 2: <b>Pasternak przez KO</b></p>
-        </div>
-
-        <a href="#" class="btn">Kup PPV teraz</a>
-        <a href="#" class="btn btn-gold">Zobacz trailer karty</a>
-
+<!-- SEKTCJA GALA -->
+<div id="gala" class="section active">
+    <h2 style="font-family: 'Oswald';">AKTUALNA KARTA WALK</h2>
+    
+    <div class="fight-card">
+        <div class="fighter">ADRIAN POLAK</div>
+        <div class="vs">VS</div>
+        <div class="fighter">FERRARI</div>
     </div>
 
-    <footer>
-        DESIGNED FOR MOBILE BY GEMINI AI &copy; 2026
-    </footer>
+    <div class="fight-card">
+        <div class="fighter">DON KASJO</div>
+        <div class="vs">VS</div>
+        <div class="fighter">TAŃCULA</div>
+    </div>
+
+    <div class="fight-card" style="border-left-color: var(--fame-gold);">
+        <div class="fighter">PASZUT</div>
+        <div class="vs">VS</div>
+        <div class="fighter">NARKUN</div>
+    </div>
+</div>
+
+<!-- SEKCJA RANKING -->
+<div id="ranking" class="section">
+    <h2 style="font-family: 'Oswald';">RANKING WYGRANYCH</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ZAWODNIK</th>
+                <th>BILANS</th>
+                <th>KD</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Don Kasjo</td>
+                <td class="win">8-2</td>
+                <td>1.25</td>
+            </tr>
+            <tr>
+                <td>Adrian Polak</td>
+                <td class="win">7-3</td>
+                <td>0.95</td>
+            </tr>
+            <tr>
+                <td>Boxdel</td>
+                <td class="win">3-2</td>
+                <td>0.80</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- DOLNE MENU -->
+<nav>
+    <button class="nav-item active" onclick="openSection(event, 'gala')">GALA</button>
+    <button class="nav-item" onclick="openSection(event, 'ranking')">RANKING</button>
+</nav>
+
+<script>
+    function openSection(evt, sectionName) {
+        // Ukryj wszystkie sekcje
+        var sections = document.getElementsByClassName("section");
+        for (var i = 0; i < sections.length; i++) {
+            sections[i].classList.remove("active");
+        }
+
+        // Usuń klasę active z przycisków
+        var navItems = document.getElementsByClassName("nav-item");
+        for (var i = 0; i < navItems.length; i++) {
+            navItems[i].classList.remove("active");
+        }
+
+        // Pokaż wybraną sekcję i dodaj klasę active do przycisku
+        document.getElementById(sectionName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
 
 </body>
 </html>
