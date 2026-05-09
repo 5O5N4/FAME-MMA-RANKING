@@ -186,3 +186,46 @@
 
 </body>
 </html>
+
+<!-- SEKCJA RANKING -->
+<div id="ranking" class="section">
+    <h2 style="font-family: 'Oswald'; border-left: 4px solid var(--fame-gold); padding-left: 10px;">RANKING FEDERACJI</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ZAWODNIK</th>
+                <th>W-P</th>
+                <th>KD / STATUS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- DON KASJO NA SZCZYCIE -->
+            <tr>
+                <td>
+                    <b style="color: var(--fame-gold);">★ DON KASJO</b><br>
+                    <small style="font-size: 0.7rem; color: #888;">Król Królów</small>
+                </td>
+                <td class="win">8 - 2</td>
+                <td>1.45 / <span style="color: var(--fame-gold);">Legenda</span></td>
+            </tr>
+            <!-- RESZTA ZAWODNIKÓW -->
+            <tr>
+                <td>ADRIAN POLAK</td>
+                <td class="win">7 - 3</td>
+                <td>0.95 / Aktywny</td>
+            </tr>
+            <tr>
+                <td>BOXDEL</td>
+                <td class="win">3 - 2</td>
+                <td>0.80 / Aktywny</td>
+            </tr>
+            <tr>
+                <td>FERRARI</td>
+                <td class="win">6 - 6</td>
+                <td>1.10 / Aktywny</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <p style="font-size: 0.8rem; color: #555; margin-top: 15px;">* Dane statystyczne aktualizowane po każdej gali.</p>
+</div>
