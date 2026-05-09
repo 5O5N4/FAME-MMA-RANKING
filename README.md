@@ -3,91 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fame MMA - Fan Page</title>
+    <title>FAME MMA Fan Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        /* Stylistyka Dark Mode */
+        :root {
+            --fame-red: #ff0000;
+            --fame-gold: #ffcc00;
+            --dark-bg: #0a0a0a;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f0f0f;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark-bg);
             color: white;
             margin: 0;
             padding: 0;
-            text-align: center;
+            line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(180deg, #ed1c24 0%, #000 100%);
-            padding: 50px 20px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1595079676339-1534801ad6cf?auto=format&fit=crop&q=80&w=1000') center/cover;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 4px solid var(--fame-red);
         }
 
         h1 {
-            font-size: 3rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
             margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 5px;
             color: #fff;
+            text-shadow: 2px 2px 10px rgba(255,0,0,0.8);
         }
 
-        .highlight {
-            color: #ffd700; /* Złoty kolor Fame */
-        }
+        .highlight { color: var(--fame-gold); }
 
         .container {
             padding: 20px;
+            max-width: 600px;
+            margin: auto;
         }
 
-        .next-event {
-            background: #1a1a1a;
-            border: 2px solid #ffd700;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 500px;
+        /* Styl karty walki */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .vs-box {
-            display: flex;
-            justify-content: space-around;
+        .main-fight {
+            text-align: center;
+            border-left: 5px solid var(--fame-red);
+        }
+
+        .vs-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
             align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .fighter-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+        }
+
+        .vs-badge {
+            background: var(--fame-red);
+            padding: 5px 12px;
+            border-radius: 5px;
             font-weight: bold;
-            font-size: 1.5rem;
+            font-style: italic;
         }
 
-        .fighter {
-            flex: 1;
-        }
-
-        .vs-circle {
-            background: #ed1c24;
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            border-radius: 50%;
-            margin: 0 10px;
-        }
-
+        /* Przyciski dopasowane do kciuka na telefonie */
         .btn {
-            display: inline-block;
-            background: #ed1c24;
+            display: block;
+            background: var(--fame-red);
             color: white;
             text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 30px;
+            padding: 18px;
+            border-radius: 12px;
             font-weight: bold;
-            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: 0.3s;
+            margin: 10px 0;
+            font-size: 1.1rem;
         }
 
-        .btn:hover {
-            transform: scale(1.1);
-            background: #ff3131;
+        .btn-gold {
+            background: transparent;
+            border: 2px solid var(--fame-gold);
+            color: var(--fame-gold);
         }
 
         footer {
-            margin-top: 50px;
-            font-size: 0.8rem;
-            color: #555;
-            padding-bottom: 20px;
+            text-align: center;
+            padding: 40px;
+            font-size: 0.7rem;
+            opacity: 0.5;
         }
     </style>
 </head>
@@ -95,31 +120,34 @@
 
     <header>
         <h1>FAME <span class="highlight">MMA</span></h1>
-        <p>Największa federacja freak-fight w Europie</p>
+        <p style="font-family: 'Oswald';">FAN PAGE / NOWY SEZON</p>
     </header>
 
     <div class="container">
-        <div class="next-event">
-            <h2 class="highlight">NAJBLIŻSZA WALKA</h2>
-            <div class="vs-box">
-                <div class="fighter">ZAWODNIK A</div>
-                <div class="vs-circle">VS</div>
-                <div class="fighter">ZAWODNIK B</div>
+        
+        <div class="card main-fight">
+            <p style="color: var(--fame-gold); margin: 0; font-weight: bold;">WALKA WIECZORU</p>
+            <div class="vs-grid">
+                <div class="fighter-name">Don Kasjo</div>
+                <div class="vs-badge">VS</div>
+                <div class="fighter-name">Boxdel</div>
             </div>
-            <p>Data: Już wkrótce...</p>
+            <p style="font-size: 0.9rem; margin-bottom: 0;">Lokalizacja: Tauron Arena, Kraków</p>
         </div>
 
-        <h3>Moje typy na galę:</h3>
-        <ul style="list-style: none; padding: 0;">
-            <li>✅ Zawodnik A przez KO</li>
-            <li>❌ Zawodnik C przez poddanie</li>
-        </ul>
+        <div class="card">
+            <h3 style="margin-top: 0;">Moje typy:</h3>
+            <p>🥊 Walka 1: <b>Kasjo przez decyzję</b></p>
+            <p>🥊 Walka 2: <b>Pasternak przez KO</b></p>
+        </div>
 
-        <a href="#" class="btn">KUP PPV (DEMO)</a>
+        <a href="#" class="btn">Kup PPV teraz</a>
+        <a href="#" class="btn btn-gold">Zobacz trailer karty</a>
+
     </div>
 
     <footer>
-        <p>&copy; 2026 Fan Page Stworzony na telefonie</p>
+        DESIGNED FOR MOBILE BY GEMINI AI &copy; 2026
     </footer>
 
 </body>
