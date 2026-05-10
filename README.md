@@ -1,122 +1,58 @@
-/* Podstawowe style */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Słodka Pasja | Torty Artystyczne</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-body {
-    line-height: 1.6;
-    color: #333;
-    background-color: #fffaf0; /* Delikatny kremowy kolor */
-}
+    <header>
+        <nav>
+            <div class="logo">Słodka Pasja</div>
+            <ul>
+                <li><a href="#home">Start</a></li>
+                <li><a href="#galeria">Nasze Torty</a></li>
+                <li><a href="#kontakt">Zamówienie</a></li>
+            </ul>
+        </nav>
+    </header>
 
-/* Nawigacja */
-header {
-    background: #fff;
-    padding: 1rem 5%;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Torty, które tworzą wspomnienia</h1>
+            <p>Ręcznie robione, z naturalnych składników i z sercem.</p>
+            <a href="#galeria" class="btn">Zobacz galerię</a>
+        </div>
+    </section>
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    <section id="galeria" class="gallery">
+        <h2>Nasze Bestsellery</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="img-placeholder">🎂</div>
+                <h3>Tort Ślubny</h3>
+                <p>Elegancki, minimalistyczny, o smaku białej czekolady.</p>
+            </div>
+            <div class="card">
+                <div class="img-placeholder">🍓</div>
+                <h3>Owocowy Raj</h3>
+                <p>Lekki biszkopt z dużą ilością sezonowych owoców.</p>
+            </div>
+            <div class="card">
+                <div class="img-placeholder">🍫</div>
+                <h3>Czekoladowy Obłęd</h3>
+                <p>Dla prawdziwych koneserów głębokiego kakao.</p>
+            </div>
+        </div>
+    </section>
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #d2691e; /* Kolor karmelowy */
-}
+    <footer id="kontakt">
+        <h2>Chcesz zamówić tort?</h2>
+        <p>Napisz do nas: <strong>kontakt@slodkapasja.pl</strong></p>
+        <p>Zadzwoń: <strong>+48 123 456 789</strong></p>
+    </footer>
 
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    margin-left: 20px;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    color: #d2691e;
-}
-
-/* Hero Section */
-.hero {
-    height: 80vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80'); /* Przykładowe zdjęcie */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    margin-top: 60px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 25px;
-    background: #d2691e;
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    margin-top: 20px;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #a0522d;
-}
-
-/* Galeria */
-.gallery {
-    padding: 50px 5%;
-    text-align: center;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.img-placeholder {
-    font-size: 50px;
-    background: #fdf5e6;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-/* Stopka */
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 40px 0;
-}
-
+</body>
+</html>
